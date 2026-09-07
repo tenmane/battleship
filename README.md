@@ -1,3 +1,3 @@
-## Webpack Template
+## Battleship
 
-Includes package.json and webpack config that switches between developer and production mode.
+Web based implementation of the Battleship game, built as part of The Odin Project.

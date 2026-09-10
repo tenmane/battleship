@@ -54,4 +54,9 @@ describe("Gameboard Object", () => {
     gameBoard.receiveAttack([1, 4]);
     expect(gameBoard.allSunk()).toBe(false);
   });
+
+  test("Don't allow duplicate hits on the same position", () => {
+    gameBoard.receiveAttack([1, 2]);
+    expect(gameBoard.receiveAttack([1, 2])).toBe("Duplicate Position!");
+  });
 });

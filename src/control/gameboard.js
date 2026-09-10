@@ -9,14 +9,15 @@ export class Gameboard {
       [false, false, false, false, false, false, false],
       [false, false, false, false, false, false, false],
     ];
-    this.missed = [];
-    this.landed = [];
+    this.missed = new Set();
+    this.landed = new Set();
   }
 
   placeShip(ship, position, direction) {
     let length = ship.size;
     let row = position[0];
     let column = position[1];
+
     while (length !== 0) {
       this.board[row][column] = ship;
       if (direction === "vertical") {
@@ -31,12 +32,18 @@ export class Gameboard {
 
   receiveAttack(position) {
     let ship = this.board[position[0]][position[1]];
+    if (
+      this.missed.has(`${position[0]}, ${position[1]}`) ||
+      this.landed.has(`${position[0]}, ${position[1]}`)
+    ) {
+      return "Duplicate Position!";
+    }
     if (ship) {
       ship.hit();
-      this.landed.push(position);
+      this.landed.add(`${position[0]}, ${position[1]}`);
       this.board[position[0]][position[1]] = false;
     } else {
-      this.missed.push(position);
+      this.missed.add(`${position[0]}, ${position[1]}`);
     }
   }
 

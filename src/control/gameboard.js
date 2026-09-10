@@ -18,9 +18,19 @@ export class Gameboard {
     let row = position[0];
     let column = position[1];
 
+    if (direction === "column") {
+      if (length + row > 7) {
+        return "Out of bounds!";
+      }
+    } else {
+      if (length + column > 7) {
+        return "Out of bounds!";
+      }
+    }
+
     while (length !== 0) {
       this.board[row][column] = ship;
-      if (direction === "vertical") {
+      if (direction === "column") {
         row++;
         length--;
       } else {

@@ -59,4 +59,8 @@ describe("Gameboard Object", () => {
     gameBoard.receiveAttack([1, 2]);
     expect(gameBoard.receiveAttack([1, 2])).toBe("Duplicate Position!");
   });
+
+  test("Don't allow Out of bound ship placements", () => {
+    expect(gameBoard.placeShip(ship, [3, 4], "row")).toBe("Out of bounds!");
+  });
 });

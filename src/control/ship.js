@@ -14,3 +14,5 @@ export class Ship {
     return this.hitAmount >= this.size;
   }
 }
+
+export const shipSizes = [5, 4, 3, 3, 2];

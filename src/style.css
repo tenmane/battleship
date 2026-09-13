@@ -1,0 +1,67 @@
+:root {
+  --primary-color: rgb(163, 160, 160);
+  --secondary-color: rgb(47, 47, 48);
+}
+body {
+  background-color: rgb(35, 36, 36);
+  margin: 0;
+  color: var(--primary-color);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+main {
+  display: grid;
+}
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.5rem;
+  background-color: var(--secondary-color);
+  border-bottom: 1px solid rgb(92, 90, 90);
+}
+
+header img {
+  width: 5rem;
+  border-radius: 50px;
+}
+.title {
+  font-size: 3rem;
+  font-family: "Caacupe One";
+}
+
+.container {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  border-radius: 2rem;
+  gap: 1.5rem;
+}
+
+.first-grid,
+.second-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+}
+
+.box {
+  border: 1px solid rgba(0, 0, 0, 0.164);
+  box-sizing: border-box;
+  cursor: crosshair;
+  background-color: rgba(75, 74, 74, 0.8);
+}
+
+.box:hover {
+  opacity: 0.8;
+}
+
+.box:active {
+  opacity: 0.6;
+}

@@ -1,9 +1,10 @@
 :root {
   --primary-color: rgb(163, 160, 160);
   --secondary-color: rgb(47, 47, 48);
+  --tertiary-color: rgb(35, 36, 36);
 }
 body {
-  background-color: rgb(35, 36, 36);
+  background-color: var(--tertiary-color);
   margin: 0;
   color: var(--primary-color);
   display: grid;
@@ -33,11 +34,24 @@ header img {
   font-size: 3rem;
   font-family: "Caacupe One";
 }
-
+.game-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.battle-log {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 100px;
+  background-color: var(--secondary-color);
+  font-size: 3rem;
+  border-radius: 10px;
+}
 .container {
   display: flex;
-  justify-self: center;
-  align-self: center;
   padding: 2rem;
   background-color: var(--secondary-color);
   border-radius: 2rem;
@@ -80,8 +94,8 @@ header img {
 }
 
 .has-ship {
-  background-color: rgb(188, 203, 207, 0.7);
-  border: none;
+  background-color: rgba(103, 143, 158, 0.7);
+  border: 1px solid black;
 }
 
 .has-ship:hover {
@@ -135,9 +149,14 @@ header img {
   background-color: white;
 }
 .successful-hit {
-  background-color: rgb(128, 62, 62);
+  background-color: rgb(196, 55, 55);
+  border: 1px solid black;
 }
 .missed {
-  background-color: grey;
+  background-color: rgb(206, 202, 202);
   opacity: 0.8;
+}
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }

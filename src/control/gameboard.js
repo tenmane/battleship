@@ -1,13 +1,16 @@
 export class Gameboard {
   constructor() {
     this.board = [
-      [false, false, false, false, false, false, false],
-      [false, false, false, false, false, false, false],
-      [false, false, false, false, false, false, false],
-      [false, false, false, false, false, false, false],
-      [false, false, false, false, false, false, false],
-      [false, false, false, false, false, false, false],
-      [false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
+      [false, false, false, false, false, false, false, false, false, false],
     ];
     this.missed = new Set();
     this.landed = new Set();
@@ -19,11 +22,11 @@ export class Gameboard {
     let column = position[1];
 
     if (direction === "column") {
-      if (length + row > 7) {
+      if (length + row > 10) {
         return "Out of bounds!";
       }
     } else {
-      if (length + column > 7) {
+      if (length + column > 10) {
         return "Out of bounds!";
       }
     }
@@ -52,8 +55,10 @@ export class Gameboard {
       ship.hit();
       this.landed.add(`${position[0]}, ${position[1]}`);
       this.board[position[0]][position[1]] = false;
+      return "Successful Hit!";
     } else {
       this.missed.add(`${position[0]}, ${position[1]}`);
+      return "Missed!";
     }
   }
 

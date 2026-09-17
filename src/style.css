@@ -9,6 +9,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
+  font-family: "Caacupe One";
 }
 main {
   display: grid;
@@ -43,6 +44,17 @@ header img {
   gap: 1.5rem;
 }
 
+.first-grid-container,
+.second-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+.first-grid-span,
+.second-grid-span {
+  font-size: 2rem;
+}
 .first-grid,
 .second-grid {
   display: flex;
@@ -54,6 +66,7 @@ header img {
 .box {
   border: 1px solid rgba(0, 0, 0, 0.164);
   box-sizing: border-box;
+  border-radius: 5px;
   cursor: crosshair;
   background-color: rgba(75, 74, 74, 0.8);
 }
@@ -64,4 +77,67 @@ header img {
 
 .box:active {
   opacity: 0.6;
+}
+
+.has-ship {
+  background-color: rgb(188, 203, 207, 0.7);
+  border: none;
+}
+
+.has-ship:hover {
+  opacity: 1;
+}
+.has-ship:active {
+  opacity: 1;
+}
+
+.player-form {
+  justify-self: center;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.player-form input {
+  background-color: transparent;
+  border: 2px solid rgb(168, 163, 163);
+  color: inherit;
+  padding: 0.8rem;
+  border-radius: 10px;
+}
+.player-form input:focus {
+  outline: none;
+  border: 2px solid rgb(94, 94, 139);
+}
+.player-form input:user-invalid {
+  border: 2px solid red;
+}
+.player-form input:user-valid {
+  border: 2px solid green;
+}
+.player-form button {
+  background-color: rgb(49, 43, 43);
+  padding: 0.8rem 1rem;
+  color: inherit;
+  border: 2px solid rgb(168, 163, 163);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.player-form button:hover {
+  opacity: 0.8;
+}
+.player-form button:active {
+  opacity: 0.6;
+}
+.inactive-grid {
+  background-color: white;
+}
+.successful-hit {
+  background-color: rgb(128, 62, 62);
+}
+.missed {
+  background-color: grey;
+  opacity: 0.8;
 }

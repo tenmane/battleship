@@ -1,6 +1,9 @@
-import { Player } from "../src/control/player.js";
-import "./DOM/render.js";
 import "./style.css";
+import "./DOM/events.js";
+import { renderBoard } from "./DOM/render.js";
+import { Player } from "./control/player.js";
 
-const tenmane = new Player("tenmane");
-const bot = new Player("Bot", true);
+const defaultOne = new Player("defaultOne", true);
+const defaultTwo = new Player("defaultTwo", true);
+renderBoard(defaultOne.gameBoard, document.querySelector(".first-grid"));
+renderBoard(defaultTwo.gameBoard, document.querySelector(".second-grid"));

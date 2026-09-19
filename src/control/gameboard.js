@@ -20,26 +20,41 @@ export class Gameboard {
     let length = ship.size;
     let row = position[0];
     let column = position[1];
-
     if (direction === "column") {
-      if (length + row > 10) {
+      if (length + column > 10) {
         return "Out of bounds!";
       }
     } else {
-      if (length + column > 10) {
+      if (length + row > 10) {
         return "Out of bounds!";
+      }
+    }
+    if (direction === "column") {
+      let temp = column;
+      for (let i = 0; i < length; i++) {
+        if (!(this.board[row][temp] === false)) {
+          return "Overlapping positions!";
+        }
+        temp++;
+      }
+    } else {
+      let temp = row;
+      for (let i = 0; i < length; i++) {
+        if (!(this.board[temp][column] === false)) {
+          return "Overlapping positions!";
+        }
+        temp++;
       }
     }
 
     while (length !== 0) {
       this.board[row][column] = ship;
       if (direction === "column") {
-        row++;
-        length--;
-      } else {
         column++;
-        length--;
+      } else {
+        row++;
       }
+      length--;
     }
   }
 

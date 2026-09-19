@@ -11,9 +11,20 @@ export class Player {
   }
   placeAllShipsRandomly() {
     this.ships.forEach((ship) => {
+      let placedShip;
       let row = Math.floor(Math.random() * 10);
       let col = Math.floor(Math.random() * 10);
-      this.gameBoard.placeShip(ship, [row, col], "vertical");
+      let position =
+        Math.floor(Math.random() * 2) === 1 ? "vertical" : "column";
+      placedShip = this.gameBoard.placeShip(ship, [row, col], position);
+      while (
+        placedShip === "Out of bounds!" ||
+        placedShip === "Overlapping positions!"
+      ) {
+        row = Math.floor(Math.random() * 10);
+        col = Math.floor(Math.random() * 10);
+        placedShip = this.gameBoard.placeShip(ship, [row, col], position);
+      }
     });
   }
 }

@@ -31,7 +31,6 @@ playerForm.addEventListener("submit", (e) => {
         box.dataset.col,
       ]);
       renderHit(box.dataset.row, box.dataset.col, secondGrid, playerAttack);
-      unfreezeGrid(firstGrid);
 
       if (bot.gameBoard.allSunk()) {
         log.textContent = "You Won!";
@@ -39,6 +38,10 @@ playerForm.addEventListener("submit", (e) => {
         freezeGrid(secondGrid);
         return;
       }
+      if (playerAttack === "Successful Hit!") {
+        return;
+      }
+      unfreezeGrid(firstGrid);
       pauseGrid(firstGrid);
       freezeGrid(secondGrid);
       log.textContent = "Enemy Turn";
@@ -54,13 +57,16 @@ playerForm.addEventListener("submit", (e) => {
             log.textContent = "You Lost!";
             return;
           }
-        } while (botAttack === "Duplicate Position!");
+        } while (
+          botAttack === "Duplicate Position!" ||
+          botAttack === "Successful Hit!"
+        );
 
         unfreezeGrid(secondGrid);
         resumeGrid(firstGrid);
         freezeGrid(firstGrid);
         log.textContent = "Your Turn";
-      }, 1000);
+      }, 500);
     });
   });
 });
